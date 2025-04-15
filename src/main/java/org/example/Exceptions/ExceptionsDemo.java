@@ -10,14 +10,15 @@ public class ExceptionsDemo {
 
 
     public static void show(){
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("fllile.txt"));
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("file.txt"))) {
+
+           // BufferedReader bufferedReader = new BufferedReader(new FileReader("fllile.txt"));
             String line = bufferedReader.readLine();
             while (line != null) {
                 System.out.println(line);
                 line =  bufferedReader.readLine();
             }
-            bufferedReader.close();
+           // bufferedReader.close();  no need
 
         }
         catch (IOException ex){
